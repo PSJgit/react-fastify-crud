@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 
 export default class Form extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+      super(props);
 
-        this.setState = {
-            name: !this.props.name ? '' : this.props.name,
-            price: !this.props.price ? '' : this.props.price
-        };
-    }
+      this.setState = {
+          name: !this.props.name ? '' : this.props.name,
+          price: !this.props.price ? '' : this.props.price
+      };
+  }
 
-    handleChange = (e) => {
-        const { name, value } = e.target;
-        this.setState({ [name]: value });
-    }
+  handleChange = (e) => {
+      const { name, value } = e.target;
+      this.setState({ [name]: value });
+  }
 
-    handleSubmit = () => {
-        const { name, price } = this.state;
-        if ( this.props.name && this.props.price ) {
-            this.props.updateItem({ name, price });
-        } else {
-            this.props.addItem({ name, price});
-        }
-    }
+  handleSubmit = () => {
+      const { name, price } = this.state;
+      if ( this.props.name && this.props.price ) {
+          this.props.updateItem({ name, price });
+      } else {
+          this.props.addItem({ name, price});
+      }
+  }
 
-    handleCancel = () => this.props.closeForm();
+  handleCancel = () => this.props.closeForm();
 
-render() {
+  render() {
     return (
       <form className="menu-row" >
         <div className="menu-item-name">
