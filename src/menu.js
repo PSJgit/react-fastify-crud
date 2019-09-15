@@ -43,7 +43,7 @@ class Menu extends Component {
     return (
       <>
         {/* Heading */}
-        <h1><i class="fas fa-list-alt"></i> e-Menu</h1>
+        <h1> CRUD Example</h1>
 
         {/* Menu component starts */}
         <div className="menu" >
