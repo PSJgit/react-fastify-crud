@@ -1,35 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Form from './form';
 
+//component that renders individual menu item stored in redux store
 export default class MenuItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      name: "",
       price: null,
       openEditForm: false,
     }
   }
 
+  //setting necessary values on mounting of component
   componentDidMount() {
     const { name, price } = this.props;
-    this.setState({ name, price});
+    this.setState({ name, price });
   }
 
-  handleEditClick = () => this.setState({ openEditForm: true });
+  //function to trigger form view and close item view
+  handleEditClick = () => this.setState({ openEditForm: true })
 
+  //calls parent's function to updated item
   handleUpdate = ({name, price}) => {
     const updatedItem = {
-      id: this.props.id,
-      name,
-      price
-    }
+      id : this.props.id, name, price
+    } 
+    this.props.handleUpdate(updatedItem);
+    this.handleCancel();
   }
 
+  //calls parent's function to delete item from store
   handleDelete = () => this.props.handleDelete(this.props.id);
 
+  //function to close form
   handleCancel = () => this.setState({openEditForm : false});
-  
+
   render() {
     return (
       <>

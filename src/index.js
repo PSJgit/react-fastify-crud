@@ -4,12 +4,15 @@ import Menu from './menu';
 import {Provider} from 'react-redux';
 import store from './redux/store/store';
 
-const root = document.getElementById("root");
+//element where we'll mount our react app
+const rootElement = document.getElementById("root");
 
 const App = () => (
-  <Provider store={store}>
+  // making our redux store available to nested components. 
+  <Provider  store={store}>
     <Menu/>
   </Provider>
 )
 
-ReactDOM.render(<App/>, root);
+//we render our app over rootElement
+ReactDOM.render(<App/>,rootElement);

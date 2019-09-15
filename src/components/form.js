@@ -1,29 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
+//Form component which is used as EDIT_ITEM_FORM as well as CREATE_ITEM_FORM
 export default class Form extends Component {
   constructor(props) {
-      super(props);
+    super(props);
 
-      this.setState = {
-          name: !this.props.name ? '' : this.props.name,
-          price: !this.props.price ? '' : this.props.price
-      };
+    //initializing state 
+    this.state = {
+      name: !this.props.name ? "" : this.props.name, 
+      price: !this.props.price ? "" : this.props.price
+    };
   }
 
+  //funtion that upadtes state on input change
   handleChange = (e) => {
-      const { name, value } = e.target;
-      this.setState({ [name]: value });
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   }
 
+  //function that sends the final data when user presses Submit
   handleSubmit = () => {
-      const { name, price } = this.state;
-      if ( this.props.name && this.props.price ) {
-          this.props.updateItem({ name, price });
-      } else {
-          this.props.addItem({ name, price});
-      }
+    const { name, price } = this.state;
+    if(this.props.name && this.props.price){
+      this.props.updateItem({ name, price });
+    }
+    else{
+      this.props.addItem({ name, price });
+    }
   }
 
+  //calls parent function to close form
   handleCancel = () => this.props.closeForm();
 
   render() {
