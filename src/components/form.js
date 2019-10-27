@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-
-export default class Form extends Component {
-  
-=======
 import React, { Component } from 'react'
 
 //Form component which is used as EDIT_ITEM_FORM as well as CREATE_ITEM_FORM
@@ -60,5 +54,4 @@ export default class Form extends Component {
       </form>
     )
   }
->>>>>>> 53ef301f138b81d57b0bcc75dc1bb449c854cc6f
 }
